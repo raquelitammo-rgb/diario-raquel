@@ -1,0 +1,13 @@
+<div *ngIf="isLoading" class="loading-screen">
+  <div class="heart-container">
+    <div class="rose">
+      <img src="../assets/icon/logo.png">
+    </div>
+    <div class="pulse-ring"></div>
+  </div>
+  <p class="loading-text">NEW ERA, NEW MYSELF ...</p>
+</div>
+
+<ion-app [class.hide-content]="isLoading">
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>

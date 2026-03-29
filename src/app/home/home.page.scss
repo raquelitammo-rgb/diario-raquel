@@ -1,0 +1,149 @@
+/* Variables KH Minimalistas */
+:host {
+  --kh-dark-pure: #000000; /* Negro absoluto como en tu foto */
+  --kh-text-pure: #FFFFFF; /* Blanco puro */
+  --kh-accent-blue: #00D1FF; /* Azul cian místico para el destello */
+  --kh-accent-gold: #FFD60A; /* Oro suave para el hover (opcional) */
+}
+
+.kh-main-content {
+  --background: var(--kh-dark-pure);
+  --color: var(--kh-text-pure);
+}
+
+.main-container {
+  display: flex;
+  gap:1500h;
+  flex-direction: column;
+  justify-content: space-between; /* Centrado vertical completo */
+  align-items: center;
+  height: 100%;
+  padding: 0px;
+  // Usamos una fuente Sans-serif elegante y fina
+  font-family: 'Monserrat', 'Poppins', sans-serif; 
+}
+
+/* --- ESTILO DEL LOGO (Basado en tu foto) --- */
+.logo-wrapper {
+  position: relative;
+  width: 120px; /* Tamaño del logo central */
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px; /* Espacio antes del texto */
+}
+
+.center-logo {
+  width: 80px; /* Tamaño real de la imagen del logo */
+  height: auto;
+  z-index: 10;
+  // Puedes añadir un filtro para que el logo sea blanco si es oscuro
+  // filter: brightness(0) invert(1);
+}
+
+/* El destello azul místico detrás del logo */
+.logo-glint {
+  position: absolute;
+  width: 4px;
+  height: 100px;
+  background: var(--kh-accent-blue);
+  box-shadow: 0 0 25px var(--kh-accent-blue), 0 0 10px #fff;
+  z-index: 5;
+  // Animación suave de parpadeo
+  animation: glintPulse 2s infinite ease-in;
+}
+
+/* --- ESTILO DEL TEXTO CENTRAL (Basado en tu foto) --- */
+.intro-text {
+  margin-bottom: 80px; /* Espacio antes del menú */
+  p {
+    color: var(--kh-text-pure);
+    font-size: 1rem;
+    font-weight: 300; /* Fino y elegante */
+    letter-spacing: 0.15rem; /* Espaciado entre letras como en tu foto */
+    text-align: center;
+    opacity: 0.8;
+  }
+}
+
+/* --- ESTILO DE LA NAVEGACIÓN (Minimalista RPG) --- */
+.kh-minimal-nav {
+  display: flex;
+  align-content:flex-start;
+  flex-flow:row wrap;
+  gap: 15px; /* Espacio entre opciones */
+  align-items: center;
+}
+
+
+
+
+.kh-nav-btn {
+  --color: var(--kh-text-pure);
+  --font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem; /* Espaciado extra para elegancia */
+  --padding-start: 10px;
+  --padding-end: 10px;
+  position: relative;
+  transition: all 0.8s ease;
+
+  // Efecto sutil de subrayado al hacer hover (Estilo menú RPG moderno)
+  .hover-underline {
+    position: relative;
+    padding-bottom: 4px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--kh-accent-blue);
+      transition: width 0.3s ease;
+    }
+  }
+
+  &:hover {
+    --color: var(--kh-accent-blue);
+    transform: scale(1.05);
+
+    ::after {
+      width: 100%;
+    }
+  }
+}
+
+/* --- ANIMACIONES --- */
+@keyframes glintPulse {
+  0%, 100% { opacity: 0.2; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.8; transform: translateY(0); }
+}
+
+.fade-in-text {
+  animation: fadeIn 2s ease-out;
+}
+
+
+
+.mi-boton {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Quitar borde predeterminado */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor a mano */
+  font-size: 16px;
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.mi-boton:hover {
+  background-color: #0056b3; /* Color al pasar el mouse */
+}
